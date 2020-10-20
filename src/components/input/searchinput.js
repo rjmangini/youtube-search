@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import InputBase from "@material-ui/core/InputBase";
 import { fade, makeStyles } from "@material-ui/core/styles";
@@ -34,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function SearchInput() {
+function SearchInput({ placeholder, onChange, value }) {
     const classes = useStyles();
 
     return (
@@ -43,7 +44,9 @@ export default function SearchInput() {
                 <SearchIcon />
             </div>
             <InputBase 
-                placeholder="Procure por vídeos..."
+                placeholder={placeholder}
+                onChange={(event) => onChange(event.target.value)}
+                value={value}
                 classes={{
                     root: classes.inputRoot,
                     input: classes.inputInput
@@ -52,3 +55,15 @@ export default function SearchInput() {
         </div>
     )
 }
+
+SearchInput.propTypes = {
+    placeholder: PropTypes.string,
+    onChange: PropTypes.func.isRequired,
+    value: PropTypes.string.isRequired
+};
+
+SearchInput.defaultProps = {
+    placeholder: "Procurar..."
+}
+
+export default SearchInput;

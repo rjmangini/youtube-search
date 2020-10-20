@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -18,8 +19,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ButtonAppBar() {
+export default function NavBar() {
   const classes = useStyles();
+
+  /* [valor, função que altera o valor] = useState(valor default) */
+  const [search, setSearch] = useState('');
 
   return (
     <div className={classes.root}>
@@ -29,7 +33,11 @@ export default function ButtonAppBar() {
             YouTube Search
           </Typography>
           <div>
-           <SearchInput />
+            <SearchInput
+              placeholder="Procure um vídeo..."
+              value={search}
+              onChange={setSearch}
+            />
           </div>
         </Toolbar>
       </AppBar>
