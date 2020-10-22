@@ -12,7 +12,7 @@ export default function Home() {
             <AppBar />
             <Container>
                 <Header text="Texto" />
-                <p>Conteúdo</p>
+                <div>Conteúdo</div>
             </Container>
         </>
     )

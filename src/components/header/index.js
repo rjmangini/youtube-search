@@ -11,7 +11,7 @@ const useStyles = makeStyles( (theme) => ({
 }));
 
 function Header({text}) {
-    const classes = useStyles;
+    const classes = useStyles();
 
     return (
         <div className={classes.root} >
