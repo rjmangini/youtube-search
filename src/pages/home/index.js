@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Container from '@material-ui/core/Container';
 
@@ -7,11 +7,15 @@ import Header from "../../components/header";
 
 // <> =  React.Fragment
 export default function Home() {
+    const [search, setSearch] = useState('');
+
+    console.log(search);
+
     return (
         <>
-            <AppBar />
+            <AppBar search={search} setSearch={setSearch} />
             <Container>
-                <Header text="Texto" />
+                <Header text={search || "Procure um vídeo..."} />
                 <div>Conteúdo</div>
             </Container>
         </>

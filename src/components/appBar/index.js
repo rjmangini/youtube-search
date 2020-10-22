@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -19,11 +20,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function NavBar() {
+function NavBar({search, setSearch}) {
   const classes = useStyles();
 
   /* [valor, função que altera o valor] = useState(valor default) */
-  const [search, setSearch] = useState('');
+  //const [search, setSearch] = useState('');
 
   return (
     <div className={classes.root}>
@@ -44,3 +45,10 @@ export default function NavBar() {
     </div>
   );
 }
+
+NavBar.propTypes = {
+  search: PropTypes.string.isRequired,
+  setSearch: PropTypes.func.isRequired
+};
+
+export default NavBar;
